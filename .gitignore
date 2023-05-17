@@ -1,0 +1,14 @@
+# Project-specific
+xd.yml
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac OS-specific storage files
+.DS_Store
+
+# vim
+*.swp
+*.swo
