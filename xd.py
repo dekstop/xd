@@ -25,5 +25,5 @@ if __name__ == "__main__":
       for name in os.listdir(root):
         path = os.path.join(root, name)
         if os.path.isdir(path):
-          if pattern in path.lower():
+          if pattern in name.lower():
             print(path)
