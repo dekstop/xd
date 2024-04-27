@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, re
 
 import yaml
 
@@ -13,17 +13,18 @@ if __name__ == "__main__":
     sys.exit(1)
 
   # Print any matching path
-  pattern = " ".join(sys.argv[1:]).lower()
+  pattern = re.compile(" ".join(sys.argv[1:]).lower())
   for root in config['paths']:
     if config['recurse']:
       for root, dirs, files in os.walk(root):
         for dir in dirs:
-          if pattern in dir.lower():
-            print(f"{root}\{dir}")
+          path = os.path.join(root, dir)
+          if pattern.search(path.lower()):
+            print(path)
     else:
       # Don't recurse:
-      for name in os.listdir(root):
-        path = os.path.join(root, name)
+      for dir in os.listdir(root):
+        path = os.path.join(root, dir)
         if os.path.isdir(path):
-          if pattern in name.lower():
+          if pattern.search(path.lower()):
             print(path)
