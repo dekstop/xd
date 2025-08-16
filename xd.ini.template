@@ -1,0 +1,6 @@
+[General]
+recurse = False
+paths =
+    C:\\Users\\Myname\\Work\\Folder1
+    C:\\Users\\Myname\\Work\\Folder2
+    C:\\Users\\Myname\\Work\\Folder3

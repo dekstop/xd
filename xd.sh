@@ -4,7 +4,8 @@
 # alias xd=". /path/to/xd.sh"
 
 # Run python script in current directory & capture its output in a variable
-RESULT=`python "$(dirname ${BASH_SOURCE[0]})/xd.py" $@`
+SCRIPT_DIR=`dirname -- "$0"`
+RESULT=`python3 "${SCRIPT_DIR}/xd.py" $@`
 COUNT=`echo "$RESULT" | grep -v "^$" | grep -c '^'`
 
 if [ -z "$1" ]; then
